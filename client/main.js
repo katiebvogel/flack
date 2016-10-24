@@ -24,7 +24,8 @@ Template.hello.events({
 });
 
 Comments = new Mongo.Collection('comments');
-// Meteor.subscribe('comments');
+Meteor.subscribe('comments');
+Meteor.subscribe('recentComments');
 
 //this helper below is querying from a collection that exists in minimongo on browser
 Template.CommentList.helpers({

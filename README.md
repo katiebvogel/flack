@@ -23,9 +23,34 @@ in the main.js file, we used the moment library, specifically, the calendar func
 
 10/24/16 -- Monday
 Persistent messaging via DDP occurring with Meteor.  (Websockets instead of HTTP or Ajax)
- DDP
+ DDP (distributed data protocol?) trading messages (usually JSON)
+
  Publish and Subscribe
   Client can see what the server publishes by subscribing (ex: to "comments")
   There's an autopublish dependency package automatically installed
   we're going to $ meteor remove autopublish
-  if you go to browser console Comments.find().fetch(), you see an empty array
+  if you go to browser console var sub = Meteor.subscribe('comments'); you can call your variable "sub" from your browser console too.  There are functions on sub such as sub.ready(); which returns a boolean.  There is also sub.stop(); which ends the subscription.
+
+
+Server-side debugger:  
+  Katherines-MBP:flack katherinevogel$ NODE_OPTIONS='--debug' meteor
+  [[[[[ ~/Codespace/flack ]]]]]
+
+  => Started proxy.
+  => A patch (Meteor 1.4.1.3) for your current release is available!
+     Update this project now with 'meteor update --patch'.
+  => Started MongoDB.
+  W20161024-16:23:13.882(-5)? (STDERR) Debugger listening on port 5858
+  => Started your app.
+
+  => App running at: http://localhost:3000/
+
+if you cut and paste to the blow url into your browser... you have some server de-bugging action happening!
+
+  Katherines-MBP:flack katherinevogel$ node-inspector
+Node Inspector v0.12.8
+Visit http://127.0.0.1:8080/?port=5858 to start debugging.
+
+
+
+Meteor source --
